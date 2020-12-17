@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<body>
+<h1>Spring Boot file upload example</h1>
+<form id="form1" method="POST" action="/upload/doUploadAndStore" enctype="multipart/form-data">
+    <input type="file" name="file" /><br/><br/>
+    <input type="submit" value="上传" />
+</form>
+<br>
+<br>
+<form id="form2" method="POST" action="/upload/doUploadAndTransfer" enctype="multipart/form-data">
+    <input type="file" name="file" /><br/><br/>
+    <input type="submit" value="转换" />
+</form>
+</body>

@@ -1,0 +1,15 @@
+#thymeleaf start
+spring:
+  thymeleaf:
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+  servlet:
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 250MB
+custom:
+  upload:
+    fileDirPath: D:\\Downloads\\

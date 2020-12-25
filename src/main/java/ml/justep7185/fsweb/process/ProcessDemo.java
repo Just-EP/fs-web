@@ -45,7 +45,7 @@ public class ProcessDemo {
 //        processDemo.processDemo();
 //        processDemo.testDecoder();
         String path = "D:\\微信图片_20201216115059.jpg";
-        processDemo.qrEncodeSVG(path);
+//        processDemo.qrEncodeSVG(path);
 //        String text = processDemo.testDecoder(path);
 //        processDemo.testEncoder(text);
     }
@@ -98,36 +98,5 @@ public class ProcessDemo {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public void qrEncodeSVG(String text) {
-        //二维码内容
-
-        //二维码图片宽度
-        int width = 200;
-        //高度
-        int height = 200;
-        //图片格式
-        String format = "png";
-
-        Hashtable<EncodeHintType, String> hints = new Hashtable<EncodeHintType, String>();
-        hints.put(EncodeHintType.CHARACTER_SET, "utf-8");
-        BitMatrix bitMatrix = null;
-        try {
-            //编码
-            bitMatrix = new MultiFormatWriter().encode(text, BarcodeFormat.QR_CODE, width, height, hints);
-            BufferedImage qrCodeImage = MatrixToImageWriter.toBufferedImage(bitMatrix);
-            SVGGraphics2D g2 = new SVGGraphics2D(width, height);
-            g2.drawImage(qrCodeImage, 0,0, width, height, null);
-            String svgElement = g2.getSVGElement(null, true, null, null, null);
-            File file = new File("D:/a.svg");
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
-            bufferedWriter.write(svgElement);
-            bufferedWriter.close();
-            System.out.println();
-        } catch (WriterException | IOException e1) {
-            e1.printStackTrace();
-        }
-
     }
 }

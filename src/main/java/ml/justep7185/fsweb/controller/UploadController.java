@@ -56,6 +56,7 @@ public class UploadController {
         try {
             InputStream inputStream = file.getInputStream();
             String text = qrHandler.qrDecode(inputStream);
+            qrHandler.generateQr(text);
             System.out.println(text);
         } catch (IOException e) {
             e.printStackTrace();
